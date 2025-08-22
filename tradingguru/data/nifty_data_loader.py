@@ -8,7 +8,7 @@ constituents and the benchmark index from Yahoo Finance.
 import pandas as pd
 import numpy as np
 import yfinance as yf
-from typing import List, Dict, Optional, Tuple, Union
+from typing import List, Dict, Optional, Tuple, Union, Any
 from datetime import datetime, date, timedelta
 import logging
 import json

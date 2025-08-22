@@ -1,0 +1,100 @@
+# NIFTY 50 Momentum Strategy Backtest Configuration
+#
+# This configuration file defines all parameters for running a backtest
+# of the enhanced NIFTY 50 momentum strategy.
+
+# Backtest Settings
+backtest:
+  start_date: "2020-01-01"
+  end_date: "2024-12-31"
+  initial_capital: 1000000.0  # 10 lakhs
+  rebalance_frequency: "D"    # Daily rebalancing
+  benchmark_symbol: "^NSEI"   # NIFTY 50 index
+
+# Data Configuration
+data:
+  universe_file: "data/universe/nifty50.json"
+  sectors_file: "data/universe/nifty50_sectors.json"
+  cache_dir: "data/cache"
+  use_cache: true
+
+# Strategy Parameters
+strategy:
+  # Signal generation
+  lookback_short: 21        # Short-term momentum (1 month)
+  lookback_medium: 63       # Medium-term momentum (3 months)
+  lookback_long: 252        # Long-term momentum (1 year)
+  momentum_weights: [0.2, 0.5, 0.3]  # Weights for short/medium/long momentum
+  
+  # Position sizing
+  top_quantile: 0.3         # Top 30% of stocks by momentum
+  min_positions: 10         # Minimum number of positions
+  max_positions: 20         # Maximum number of positions
+  equal_weight: false       # Use inverse volatility weighting
+  
+  # Risk management
+  volatility_lookback: 21   # Volatility calculation window
+  vol_target: 0.15          # Target portfolio volatility (15%)
+  max_weight: 0.08          # Maximum individual position weight (8%)
+  sector_neutral: true      # Apply sector neutrality
+  max_sector_weight: 0.25   # Maximum sector exposure (25%)
+  
+  # Regime filters
+  market_filter: true       # Apply market regime filter
+  vol_regime_threshold: 1.5 # High volatility regime threshold
+  trend_filter: true        # Apply trend filter
+  min_trend_strength: 0.02  # Minimum trend strength (2%)
+  
+  # Risk-off scaling
+  risk_off_enabled: true    # Enable risk-off scaling
+  risk_off_vol_threshold: 0.25  # VIX-like threshold for risk-off
+  risk_off_scale: 0.5       # Scale factor during risk-off periods
+  
+  # Signal processing
+  signal_smoothing: true    # Smooth signals over time
+  smoothing_window: 3       # Signal smoothing window
+  winsorize_signals: true   # Winsorize extreme signals
+  winsorize_percentiles: [0.05, 0.95]  # Winsorization percentiles
+
+# Transaction Costs
+transaction_costs:
+  commission_rate: 0.001    # 0.1% commission on trade value
+  bid_ask_spread: 0.0005    # 0.05% half-spread
+  market_impact: 0.0001     # 0.01% market impact
+  min_commission: 0.0       # Minimum commission per trade
+
+# Risk Constraints
+risk_constraints:
+  max_position_weight: 0.08 # Maximum weight per position (8%)
+  max_sector_weight: 0.30   # Maximum weight per sector (30%)
+  max_leverage: 1.0         # Maximum leverage (100% invested)
+  min_diversification: 10   # Minimum number of positions
+  max_turnover: 2.0         # Maximum annual turnover (200%)
+  max_drawdown_limit: -0.20 # Maximum drawdown before stopping (-20%)
+  volatility_target: null   # Target portfolio volatility (null = disabled)
+  var_limit: null           # Value at Risk limit (null = disabled)
+
+# Logging Configuration
+logging:
+  level: "INFO"             # Logging level (DEBUG, INFO, WARNING, ERROR)
+  save_to_file: true        # Save logs to file
+  
+# Output Configuration
+output:
+  save_daily_portfolio: true    # Save daily portfolio data
+  save_trades_log: true         # Save detailed trades log
+  save_detailed_results: true   # Save complete results pickle
+  generate_plots: false         # Generate performance plots (requires matplotlib)
+  
+# Performance Attribution
+attribution:
+  enabled: true             # Enable performance attribution analysis
+  benchmark_decomposition: true  # Decompose returns vs benchmark
+  sector_attribution: true  # Analyze sector contribution
+  
+# Notes:
+# - All returns and volatilities are in decimal format (0.15 = 15%)
+# - Dates should be in YYYY-MM-DD format
+# - Rebalance frequency can be 'D' (daily), 'W' (weekly), 'M' (monthly), 'Q' (quarterly)
+# - Set use_cache to false for fresh data downloads
+# - Adjust transaction costs based on your broker's fee structure

@@ -1,0 +1,188 @@
+{
+  "description": "Sector mapping for NIFTY 50 constituents",
+  "last_updated": "2024-12-31",
+  "classification_standard": "GICS",
+  "sectors": {
+    "Financial Services": [
+      "HDFCBANK",
+      "ICICIBANK", 
+      "SBIN",
+      "KOTAKBANK",
+      "AXISBANK",
+      "BAJFINANCE",
+      "BAJAJFINSV",
+      "INDUSINDBK",
+      "SBILIFE",
+      "HDFCLIFE"
+    ],
+    "Information Technology": [
+      "TCS",
+      "INFY",
+      "WIPRO",
+      "HCLTECH",
+      "TECHM",
+      "LTIM"
+    ],
+    "Energy": [
+      "RELIANCE",
+      "ONGC",
+      "NTPC",
+      "POWERGRID",
+      "COALINDIA",
+      "BPCL"
+    ],
+    "Consumer Goods": [
+      "HINDUNILVR",
+      "ITC",
+      "ASIANPAINT",
+      "TITAN",
+      "NESTLEIND",
+      "BRITANNIA",
+      "TATACONSUM"
+    ],
+    "Automobile": [
+      "MARUTI",
+      "TATAMOTORS",
+      "EICHERMOT",
+      "BAJAJ-AUTO",
+      "HEROMOTOCO"
+    ],
+    "Healthcare": [
+      "SUNPHARMA",
+      "DRREDDY",
+      "CIPLA",
+      "DIVISLAB",
+      "APOLLOHOSP"
+    ],
+    "Industrials": [
+      "LT",
+      "ULTRACEMCO",
+      "GRASIM",
+      "ADANIPORTS",
+      "SHRIRAMFIN"
+    ],
+    "Materials": [
+      "JSWSTEEL",
+      "HINDALCO",
+      "TATASTEEL",
+      "UPL"
+    ],
+    "Telecommunications": [
+      "BHARTIARTL"
+    ],
+    "Diversified": [
+      "ADANIENT"
+    ]
+  },
+  "symbol_to_sector_mapping": {
+    "RELIANCE": "Energy",
+    "TCS": "Information Technology",
+    "HDFCBANK": "Financial Services",
+    "INFY": "Information Technology", 
+    "HINDUNILVR": "Consumer Goods",
+    "ICICIBANK": "Financial Services",
+    "SBIN": "Financial Services",
+    "BHARTIARTL": "Telecommunications",
+    "ITC": "Consumer Goods",
+    "KOTAKBANK": "Financial Services",
+    "LT": "Industrials",
+    "ASIANPAINT": "Consumer Goods",
+    "AXISBANK": "Financial Services",
+    "MARUTI": "Automobile",
+    "SUNPHARMA": "Healthcare",
+    "TITAN": "Consumer Goods",
+    "ULTRACEMCO": "Industrials",
+    "NESTLEIND": "Consumer Goods",
+    "BAJFINANCE": "Financial Services",
+    "WIPRO": "Information Technology",
+    "ONGC": "Energy",
+    "HCLTECH": "Information Technology",
+    "NTPC": "Energy",
+    "BAJAJFINSV": "Financial Services",
+    "POWERGRID": "Energy",
+    "TATAMOTORS": "Automobile",
+    "TECHM": "Information Technology",
+    "COALINDIA": "Energy",
+    "INDUSINDBK": "Financial Services",
+    "DRREDDY": "Healthcare",
+    "JSWSTEEL": "Materials",
+    "GRASIM": "Industrials",
+    "HINDALCO": "Materials",
+    "ADANIENT": "Diversified",
+    "TATASTEEL": "Materials",
+    "CIPLA": "Healthcare",
+    "BRITANNIA": "Consumer Goods",
+    "EICHERMOT": "Automobile", 
+    "APOLLOHOSP": "Healthcare",
+    "BPCL": "Energy",
+    "DIVISLAB": "Healthcare",
+    "HEROMOTOCO": "Automobile",
+    "UPL": "Materials",
+    "ADANIPORTS": "Industrials",
+    "BAJAJ-AUTO": "Automobile",
+    "SHRIRAMFIN": "Industrials",
+    "TATACONSUM": "Consumer Goods",
+    "SBILIFE": "Financial Services",
+    "HDFCLIFE": "Financial Services",
+    "LTIM": "Information Technology"
+  },
+  "sector_statistics": {
+    "Financial Services": {
+      "count": 10,
+      "percentage": 20.0,
+      "description": "Banks, insurance, and financial services companies"
+    },
+    "Information Technology": {
+      "count": 6,
+      "percentage": 12.0,
+      "description": "Software services and IT consulting companies"
+    },
+    "Energy": {
+      "count": 6,
+      "percentage": 12.0,
+      "description": "Oil & gas, power generation, and utilities"
+    },
+    "Consumer Goods": {
+      "count": 7,
+      "percentage": 14.0,
+      "description": "FMCG, personal care, and consumer durables"
+    },
+    "Automobile": {
+      "count": 5,
+      "percentage": 10.0,
+      "description": "Automotive manufacturers and components"
+    },
+    "Healthcare": {
+      "count": 5,
+      "percentage": 10.0,
+      "description": "Pharmaceuticals and healthcare services"
+    },
+    "Industrials": {
+      "count": 5,
+      "percentage": 10.0,
+      "description": "Construction, cement, and industrial services"
+    },
+    "Materials": {
+      "count": 4,
+      "percentage": 8.0,
+      "description": "Metals, mining, and chemicals"
+    },
+    "Telecommunications": {
+      "count": 1,
+      "percentage": 2.0,
+      "description": "Telecom services and infrastructure"
+    },
+    "Diversified": {
+      "count": 1,
+      "percentage": 2.0,
+      "description": "Diversified business conglomerates"
+    }
+  },
+  "notes": [
+    "Sector classification based on primary business activity",
+    "Some companies may have exposure to multiple sectors",
+    "GICS sector classification may differ from NSE sectoral indices",
+    "Financial Services is the largest sector by count in NIFTY 50",
+    "Mapping excludes .NS suffix - will be added by data loader"
+  ]
+}

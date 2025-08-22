@@ -1,0 +1,51 @@
+# Parameter ranges for NIFTY 50 momentum strategy optimization
+#
+# This file defines the ranges of parameters to test during parameter sweeps.
+# Each parameter can have multiple values to test.
+
+parameter_ranges:
+  # Position sizing parameters
+  top_quantile: [0.2, 0.3, 0.4, 0.5]       # Percentage of top momentum stocks
+  min_positions: [8, 10, 12, 15]           # Minimum number of positions
+  max_positions: [15, 20, 25, 30]          # Maximum number of positions
+  max_weight: [0.05, 0.08, 0.10, 0.12]     # Maximum individual position weight
+  
+  # Momentum parameters
+  lookback_medium: [42, 63, 84]            # Medium-term momentum lookback
+  momentum_weights: 
+    - [0.1, 0.6, 0.3]                      # More weight on medium-term
+    - [0.2, 0.5, 0.3]                      # Balanced (default)
+    - [0.3, 0.4, 0.3]                      # More weight on short-term
+  
+  # Risk management parameters
+  sector_neutral: [true, false]            # Enable/disable sector neutrality
+  max_sector_weight: [0.20, 0.25, 0.30]    # Maximum sector exposure
+  equal_weight: [true, false]              # Equal vs inverse vol weighting
+  
+  # Market regime parameters
+  vol_regime_threshold: [1.2, 1.5, 2.0]    # Volatility regime threshold
+  risk_off_scale: [0.3, 0.5, 0.7]          # Risk-off scaling factor
+  
+  # Signal processing
+  winsorize_signals: [true, false]         # Enable signal winsorization
+
+# Notes:
+# - Each combination of parameters will be tested
+# - Total combinations = product of all list lengths
+# - Be careful not to create too many combinations (can be very slow)
+# - Start with fewer parameters/values for initial exploration
+# - Use results to narrow down ranges for detailed optimization
+
+# Example quick sweep (fewer combinations):
+parameter_ranges_quick:
+  top_quantile: [0.2, 0.3, 0.4]
+  sector_neutral: [true, false]
+  max_weight: [0.05, 0.08, 0.10]
+
+# Example focused sweep (specific aspect):
+parameter_ranges_momentum:
+  lookback_medium: [42, 52, 63, 74, 84]
+  momentum_weights:
+    - [0.1, 0.6, 0.3]
+    - [0.2, 0.5, 0.3] 
+    - [0.3, 0.4, 0.3]
